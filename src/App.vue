@@ -1,6 +1,13 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
+  <div id="nav" class="h2">
+    <router-link to="/">Home</router-link>
+    |
+    <router-link to="/">Products</router-link>
+    |
+    <router-link to="/">Product Details</router-link>
+    |
+    <router-link to="/">Product by Category</router-link>
+    |
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
