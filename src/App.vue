@@ -1,14 +1,20 @@
 <template>
   <div id="nav" class="h2">
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/">Products</router-link>
-    |
-    <router-link to="/">Product Details</router-link>
-    |
-    <router-link to="/">Product by Category</router-link>
-    |
-    <router-link to="/about">About</router-link>
+    <span>
+      <router-link to="/">Home</router-link>
+    </span>
+    <span>
+      <router-link to="/products">Products</router-link>
+    </span>
+    <span>
+      <router-link to="/detail">Detail</router-link>
+    </span>
+    <span>
+      <router-link to="/category">Category</router-link>
+    </span>
+    <span>
+      <router-link to="/about">About</router-link>
+    </span>
   </div>
   <router-view />
 </template>
@@ -29,9 +35,14 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+span {
+  padding: 15px;
 }
 </style>

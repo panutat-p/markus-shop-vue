@@ -6,17 +6,17 @@
         alt="storefront"
       />
     </figure>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
+
+<style scoped>
+img {
+  max-height: 800px;
+}
+</style>
