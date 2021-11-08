@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { BASE_API_URL } from "@/constants/express.js"; // TODO
+import { BASE_API_URL } from "@/constants/express";
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
