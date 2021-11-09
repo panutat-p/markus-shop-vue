@@ -21,6 +21,11 @@ const routes = [
     component: Detail,
   },
   {
+    path: "/detail/:id",
+    name: "DetailId",
+    component: Detail,
+  },
+  {
     path: "/category",
     name: "Category",
     component: Category,
