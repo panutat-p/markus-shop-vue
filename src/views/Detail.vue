@@ -20,6 +20,15 @@
           </tr>
         </tbody>
       </table>
+      <div class="text-end">
+        <button
+          v-on:click="deleteProduct"
+          type="button"
+          class="btn btn-success mb-2"
+        >
+          Delete
+        </button>
+      </div>
       <figure>
         <img
           src="https://images.unsplash.com/photo-1548808918-a33260f83b25?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=984&q=80"
@@ -73,7 +82,7 @@
 <script>
 import { BASE_API_URL } from "@/constants/express";
 import { ref, onMounted, onUpdated } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 
 export default {
@@ -81,6 +90,8 @@ export default {
 
   setup() {
     const route = useRoute();
+    const router = useRouter();
+
     const isData = ref(false);
     const id = ref(0);
     const detail = ref({});
@@ -120,6 +131,16 @@ export default {
       window.location.reload();
     };
 
+    const deleteProduct = () => {
+      console.log("deleteProduct()");
+      const isConfirm = window.confirm("Are you confirm to delete?");
+      if (isConfirm) {
+        const res = axios.delete(`${BASE_API_URL}/products/${id.value}`);
+        console.log(res.data);
+      }
+      router.replace("/products");
+    };
+
     /**
      * Life Cycle Hook
      */
@@ -140,7 +161,15 @@ export default {
       }
     });
 
-    return { detail, isData, toggleForm, isShowForm, onSubmit, newDetail };
+    return {
+      detail,
+      isData,
+      toggleForm,
+      isShowForm,
+      onSubmit,
+      newDetail,
+      deleteProduct,
+    };
   },
 };
 </script>
