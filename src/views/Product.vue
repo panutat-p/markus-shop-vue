@@ -1,5 +1,46 @@
 <template>
   <div class="container">
+    <div class="text-start">
+      <button v-on:click="toggleForm" type="button" class="btn btn-success mb-2">
+        Add Product
+      </button>
+    </div>
+    <form v-if="isShowForm" v-on:submit.prevent="addProduct" class="text-start">
+      <div class="form-group">
+        <label for="input-name">Product Name</label>
+        <input
+          v-model="newDetail.name"
+          type="text"
+          class="form-control"
+          id="input-name"
+          placeholder="placeholder"
+        />
+      </div>
+      <div class="form-group">
+        <label for="input-category">Product Category</label>
+        <input
+          v-model="newDetail.category"
+          type="text"
+          class="form-control"
+          id="input-category"
+          placeholder="placeholder"
+        />
+      </div>
+      <div class="form-group">
+        <label for="input-price">Product Price</label>
+        <input
+          v-model="newDetail.price"
+          type="text"
+          class="form-control"
+          id="input-price"
+          placeholder="placeholder"
+        />
+        {{ newDetail }}
+      </div>
+      <div class="text-center pb-5">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,14 +66,14 @@
       </tbody>
     </table>
     <button v-on:click="refresh" type="button" class="btn btn-success">
-      refresh
+      Refresh
     </button>
   </div>
 </template>
 
 <script>
 import { BASE_API_URL } from "@/constants/express";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUpdated } from "vue";
 import axios from "axios";
 
 export default {
@@ -40,6 +81,9 @@ export default {
 
   setup() {
     const products = ref([]);
+
+    const isShowForm = ref(false);
+    const newDetail = ref({});
 
     const getProducts = async () => {
       console.log("getProducts()");
@@ -52,6 +96,23 @@ export default {
       window.location.reload();
     };
 
+    const toggleForm = () => {
+      console.log("toggleForm()");
+      console.log(isShowForm.value);
+      isShowForm.value = !isShowForm.value;
+    };
+
+    const addProduct = () => {
+      console.log("addProduct()");
+      const res = axios.post(`${BASE_API_URL}/products`, {
+        name: newDetail.value.name,
+        category: newDetail.value.category,
+        price: newDetail.value.price,
+      });
+      console.log(res.data);
+      window.location.reload();
+    };
+
     /**
      * Life Cycle Hook
      */
@@ -60,7 +121,14 @@ export default {
       getProducts();
     });
 
-    return { products, refresh };
+    onUpdated(() => {
+      console.log("Hook scroll to top");
+      if (isShowForm.value) {
+        window.scrollTo(0, 0);
+      }
+    });
+
+    return { products, refresh, isShowForm, toggleForm, newDetail, addProduct };
   },
 };
 </script>
