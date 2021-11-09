@@ -1,19 +1,16 @@
 <template>
   <div id="nav" class="h2">
     <span>
-      <router-link to="/">Home</router-link>
+      <router-link v-bind:to="{ name: `Home` }">Home</router-link>
     </span>
     <span>
-      <router-link to="/products">Products</router-link>
+      <router-link v-bind:to="{ name: `Product` }">Products</router-link>
     </span>
     <span>
-      <router-link to="/detail">Detail</router-link>
+      <router-link v-bind:to="{ name: `Category` }">Category</router-link>
     </span>
     <span>
-      <router-link to="/category">Category</router-link>
-    </span>
-    <span>
-      <router-link to="/about">About</router-link>
+      <router-link v-bind:to="{ name: `About` }">About</router-link>
     </span>
   </div>
   <router-view />

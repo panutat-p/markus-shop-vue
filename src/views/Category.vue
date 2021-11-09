@@ -1,13 +1,11 @@
 <template>
-<h1>Category</h1>
+  <h1>Category</h1>
 </template>
 
 <script>
 export default {
-  name: "Category"
+  name: "Category",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

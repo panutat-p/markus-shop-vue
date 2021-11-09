@@ -64,12 +64,11 @@
               v-bind:to="{ name: `DetailId`, params: { id: product._id } }"
               >detail
             </router-link>
-            <!--<router-link to="/detail">detail</router-link>-->
           </td>
         </tr>
       </tbody>
     </table>
-    <button v-on:click="refresh" type="button" class="btn btn-success">
+    <button v-on:click="refresh" type="button" class="btn btn-success mb-5">
       Refresh
     </button>
   </div>
@@ -102,7 +101,6 @@ export default {
 
     const toggleForm = () => {
       console.log("toggleForm()");
-      console.log(isShowForm.value);
       isShowForm.value = !isShowForm.value;
     };
 
