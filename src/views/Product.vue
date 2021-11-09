@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <div class="text-start">
-      <button v-on:click="toggleForm" type="button" class="btn btn-success mb-2">
+      <button
+        v-on:click="toggleForm"
+        type="button"
+        class="btn btn-success mb-2"
+      >
         Add Product
       </button>
     </div>
@@ -13,7 +17,7 @@
           type="text"
           class="form-control"
           id="input-name"
-          placeholder="placeholder"
+          placeholder="name"
         />
       </div>
       <div class="form-group">
@@ -23,7 +27,7 @@
           type="text"
           class="form-control"
           id="input-category"
-          placeholder="placeholder"
+          placeholder="category"
         />
       </div>
       <div class="form-group">
@@ -33,7 +37,7 @@
           type="text"
           class="form-control"
           id="input-price"
-          placeholder="placeholder"
+          placeholder="price"
         />
         {{ newDetail }}
       </div>

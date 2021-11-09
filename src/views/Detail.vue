@@ -39,7 +39,7 @@
           type="text"
           class="form-control"
           id="input-name"
-          placeholder="placeholder"
+          placeholder="name"
         />
       </div>
       <div class="form-group">
@@ -49,7 +49,7 @@
           type="text"
           class="form-control"
           id="input-category"
-          placeholder="placeholder"
+          placeholder="category"
         />
       </div>
       <div class="form-group">
@@ -59,7 +59,7 @@
           type="text"
           class="form-control"
           id="input-price"
-          placeholder="placeholder"
+          placeholder="price"
         />
         {{ newDetail }}
       </div>
@@ -86,7 +86,7 @@ export default {
     const detail = ref({});
 
     const isShowForm = ref(false);
-    const newDetail = ref({});
+    const newDetail = ref({ name: detail.value.name });
 
     const getDetailById = async (id) => {
       console.log("getDetailById()");
@@ -94,6 +94,10 @@ export default {
       const res = await axios.get(`${BASE_API_URL}/products/${id}`);
       console.log(res.data);
       detail.value = res.data;
+      // to show default value in the form
+      newDetail.value.name = detail.value.name;
+      newDetail.value.category = detail.value.category;
+      newDetail.value.price = detail.value.price;
     };
 
     const toggleForm = () => {
