@@ -52,4 +52,14 @@ export default {
 li {
   list-style-type: none;
 }
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #0d6efd;
+}
+
+a:hover {
+  color: #42b983;
+}
 </style>
