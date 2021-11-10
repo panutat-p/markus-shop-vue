@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import Product from "@/views/Product";
 import Detail from "@/views/Detail";
 import Category from "@/views/Category";
+import ProductInCategory from "@/views/ProductInCategory";
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: "/category",
     name: "Category",
     component: Category,
+  },
+  {
+    path: "/category/:category",
+    name: "ProductInCategory",
+    component: ProductInCategory,
   },
   {
     path: "/about",

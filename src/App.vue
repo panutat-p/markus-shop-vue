@@ -4,7 +4,7 @@
       <router-link v-bind:to="{ name: `Home` }">Home</router-link>
     </span>
     <span>
-      <router-link v-bind:to="{ name: `Product` }">Products</router-link>
+      <router-link v-bind:to="{ name: `Product` }">Product</router-link>
     </span>
     <span>
       <router-link v-bind:to="{ name: `Category` }">Category</router-link>
