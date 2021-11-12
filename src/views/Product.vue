@@ -18,6 +18,7 @@
           class="form-control"
           id="input-name"
           placeholder="name"
+          required
         />
       </div>
       <div class="form-group">
@@ -28,6 +29,7 @@
           class="form-control"
           id="input-category"
           placeholder="category"
+          required
         />
       </div>
       <div class="form-group">
@@ -38,6 +40,7 @@
           class="form-control"
           id="input-price"
           placeholder="price"
+          required
         />
         {{ newDetail }}
       </div>
